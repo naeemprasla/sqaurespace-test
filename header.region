@@ -1,7 +1,9 @@
-<div class="announcement-bar" style="{block:announcer} display: block; {endblock:announcer}">
+{block:announcementEnabled}
+<div class="announcement-bar">
    <div class="announcement-content">
       <p>{block-field type="text" id="announcementText"}Default Announcement Text{/block-field}</p>
       <a href="{block-field type="url" id="announcementLink"}#">{block-field type="text" id="announcementLinkText"}Learn More{/block-field}</a>
       <span class="announcement-close" onclick="closeAnnouncementBar()">×</span>
    </div>
 </div>
+{endblock:announcementEnabled}
