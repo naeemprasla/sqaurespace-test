@@ -23,4 +23,13 @@
   // The event subscription that reloads images on resize
   window.addEventListener('resize', loadAllImages);
 
+
+
+
 }());
+
+
+//Announcemnent Bar
+function closeAnnouncementBar() {
+  document.querySelector('.announcement-bar').style.display = 'none';
+}

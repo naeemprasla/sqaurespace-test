@@ -8,6 +8,7 @@
     {squarespace-headers}
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes} testing-class">
+    {block-setting id="announcementEnabled" type="boolean" label="Enable Announcement Bar"}
 
     <div class="site-container">
 
