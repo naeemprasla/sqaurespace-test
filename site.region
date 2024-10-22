@@ -16,16 +16,28 @@
         <squarespace:navigation navigationId="siteNav" template="site-navigation" />
 
         <!-- site title or logo -->
+        {
+          "label": "Logo",
+          "identifier": "logo-image",
+          "type": "image",
+          "description": "Upload your site logo here."
+        }
+
+        {{#if logo-image}}
+  <a href="{{site.url}}" class="logo">
+    <img src="{{logo-image}}" alt="{{site.title}}">
+  </a>
+{{else}}
+  <a href="{{site.url}}" class="logo">
+    {{site.title}}
+  </a>
+{{/if}}
         {.section website}
-        {{ if site.logo }}
-        <a href="{{ site.url }}">
-          <img src="{{ site.logo }}" alt="{{ site.title }}">
-        </a>
-      {{ else }}
-        <a href="{{ site.url }}">
-          {{ site.title }}
-        </a>
-      {{ end }}
+
+
+          <h1 class="site-title-heading" data-content-field="site-title">
+            <a href="/" class="site-title-link">{siteTitle}</a>
+          </h1>
         {.end}
       </header>
 
