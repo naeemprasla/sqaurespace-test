@@ -28,6 +28,7 @@
 
         <squarespace:block-field id="heroSection" columns="12"/>
         <squarespace:block-field id="aboutSection" columns="12"/>
+        <squarespace:block-field id="servicesSection" columns="12"/>
 
        {squarespace.main-content}
       </main>
