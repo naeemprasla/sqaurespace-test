@@ -9,10 +9,6 @@
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes} testing-class">
 
-
-
-
-
     <div class="site-container">
 
       <header class="site-header">
@@ -29,6 +25,9 @@
 
       <!-- cms content injection point -->
       <main class="content-container" role="main" data-content-field="main-content">
+
+        <squarespace:block-field id="blockField1" columns="12"/>
+        
        {squarespace.main-content}
       </main>
 
