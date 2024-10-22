@@ -1,53 +1,64 @@
-Base Template
+# This repository is scheduled to be deprecated. After October 31, 2024, the contents of this repo will no longer be available on GitHub. See [developers.squarespace.com/tools](https://developers.squarespace.com/tools) for more details
+
+Doncab Framework
 ------------------------------
+A portfolio framework with unique Project gallery layouts
 
-A minimal template for developers getting started with Squarespace, using developer mode. No tweaks, no web fonts, no static assets, no static pages, no system collections, no collection features, no modules at all.
+*NOTICE: This code is licensed to you pursuant to Squarespace’s Developer Terms of Use. See license section below.*
 
-For more information about the Squarespace Developer Platform see [developers.squarespace.com](http://developers.squarespace.com).
+**Features**
+* Full Width, Half Width, Alternating Width and Grid layout options for Index Collections
+* Several gallery layout options for Project Collections to display your portfolio work
+* Page transition animations
+* AJAX loaded pages
 
-### Usage
+## Basic Usage
 
-See the [Developer Getting Started](https://developers.squarespace.com/quick-start) page for an step-by-step guide for getting started with the Squaresapce Developer Platform. You can create a new website using this template by visiting [base-template.squarespace.com](http://base-template.squarespace.com) and clicking the "Create a Site Like This" button. This template is also available on [GitHub](https://github.com/Squarespace/base-template).
+This template uses [Node Package Manager](https://www.npmjs.com/) to handle dependency management and run build scripts. After cloning this repo, install dependencies:
 
-### Squarespace Templates
+```sh
+npm install
+```
 
-Each Squarespace website is based on a template like this one. Templates contain regular web files like CSS and JavaScript. In addition, Squarespace recognizes a few special file types:
+To use the local development process, you'll need to install the [Squarespace Local Development Server](http://developers.squarespace.com/local-development) separately, then run:
 
-#### JSON-T Template Files
+```sh
+npm start
+```
 
-Squarespace template files are written in [JSON Template](https://developers.squarespace.com/what-is-json-t), also known as JSON-T. It is a simple yet expressive template language. JSON-T files have different extensions depending on the type of file, for example `.list`, `.item`, and `.region`.
+To deploy to your live Squarespace site, run:
 
-#### LESS Files
+```sh
+npm run deploy
+```
 
-Template LESS files (.less) are processed through the [LESS](http://lesscss.org/) preprocessor. LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions.
+## NPM Script Reference
 
-### Template Folder Structure
+This template's NPM scripts make extensive use of `squarespace` CLI commands. To learn more about what's happening under the hood, check out [Squarespace Toolbelt](https://github.com/Squarespace/squarespace-toolbelt) on Github.
 
-Squarespace template files are organized using the following folder structure at the root of your site:
+### npm run build
+Cleans the build folder, copies Squarespace files (JSON-T, LESS, assets) into the build folder from source and `node_modules`, and runs Webpack to bundle Javascript.
 
-- **assets**: design assets — example: images, fonts and icons
-- **blocks**: reusable blocks of JSON-T (AKA partials) — ex: navigation.block
-- **collections**: collection files — [collection].list, [collection].item, [collection].conf
-- **scripts**: Javascript files — site.js
-- **styles**: stylesheet files — styles.css, styles.less
-- [**root**]: sitewide files — site.region, template.conf
+### npm run clean
+Cleans the build folder, removing all build results.
 
-### Essential Files
+### npm run deploy
+Deploys your built template to production using Git. If not already configured, initializes a Git repo for deployment in your build folder. Note this is separate from your source repository, and will only contain the build result.
 
-At the very minimum, your template needs a `.region` file and a `template.conf`.
+### npm run lint
+Runs ESLint on the scripts in your `/scripts` folder.
 
-#### /site.region
+### npm start
+Runs watch, and simultaneously launches Squarespace Server. By default this runs on `localhost:9000`.
 
-Typically this file is used as the global site template – containing the site header, footer, and sidebars. This is like the `index.html` of your site. Every template must have at least one `.region` file. Simple templates will have a single `.region`, more advanced templates will have multiple `.region` files describing header, body, and footer variants. Regions files live in the root directory of a template.
+### npm run server
+Launches Squarespace Server.
 
-See the [Layouts & Regions documentation](https://developers.squarespace.com/layouts-regions/) for more details.
+### npm run server:auth
+Launches Squarespace Server, prompting you for your Squarespace authentication details. Useful if your site is password-protected.
 
-#### /template.conf
+### npm run watch
+Watches your source directory as well as your scripts and modules for changes, and builds on the fly when changes are detected.
 
-Contains the configuration settings for the template. This is where you can name your template, specify layouts, add navigation sections, specify stylesheets, and other general site options. Template configuration files must live in the root directory of a template.
-
-See the [Template Configuration documentation](https://developers.squarespace.com/template-configuration/) for more details.
-
-### Further Reading
-
-For further reading please consult the [Squarespace Template Overview](https://developers.squarespace.com/template-overview/) and other documentation on the Squarespace developers website.
+## License
+Portions Copyright © 2016 Squarespace, Inc. This code is licensed to you pursuant to Squarespace’s Developer Terms of Use, available at http://developers.squarespace.com/developer-terms-of-use (the “Developer Terms”). You may only use this code on websites hosted by Squarespace, and in compliance with the Developer Terms. TO THE FULLEST EXTENT PERMITTED BY LAW, SQUARESPACE PROVIDES ITS CODE TO YOU ON AN “AS IS” BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
