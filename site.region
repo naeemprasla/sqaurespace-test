@@ -17,9 +17,15 @@
 
         <!-- site title or logo -->
         {.section website}
-          <h1 class="site-title-heading" data-content-field="site-title">
-            <a href="/" class="site-title-link">{siteTitle}</a>
-          </h1>
+        {{ if site.logo }}
+        <a href="{{ site.url }}">
+          <img src="{{ site.logo }}" alt="{{ site.title }}">
+        </a>
+      {{ else }}
+        <a href="{{ site.url }}">
+          {{ site.title }}
+        </a>
+      {{ end }}
         {.end}
       </header>
 
