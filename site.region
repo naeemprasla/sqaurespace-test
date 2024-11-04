@@ -1,13 +1,21 @@
 <!doctype html>
 <html class="touch-styles {.if authenticatedAccount}authenticated-account{.end}">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    {.if template.mobileStylesEnabled}<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">{.end}
-    {squarespace-headers}
-    <script>(function(){var touchTest="ontouchstart"in window||navigator.msMaxTouchPoints;if(!touchTest){with(document.documentElement){className=className.replace(new RegExp("touch-styles"),"")}}})()</script>
-  </head>
-  {.if template.mobileStylesEnabled}<!-- Mobile Styles Enabled -->{.or}<!-- Mobile Styles Disabled -->{.end}
-  <body id="{squarespace.page-id}" class="{squarespace.page-classes}{.if website.logoImageUrl} has-logo-image{.or} has-site-title{.end}{.if website.siteTagLine} has-tagline{.end}{.if showCart} has-cart{.end}{.if websiteSettings.userAccountsSettings.loginAllowed} has-user-accounts{.end}{.if website.socialAccounts.0} has-social{.end}<squarespace:navigation navigationId="mainNav">{.if items.0} has-primary-nav{.end}</squarespace:navigation><squarespace:navigation navigationId="secondaryNav">{.if items.0} has-secondary-nav{.end}</squarespace:navigation>{.section collection}{.background-source-video?} has-video-background-banner{.end}{.end}" data-controller="BodyClassController">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  {.if template.mobileStylesEnabled}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">{.end}
+  {squarespace-headers}
+  <script>(function () { var touchTest = "ontouchstart" in window || navigator.msMaxTouchPoints; if (!touchTest) { with (document.documentElement) { className = className.replace(new RegExp("touch-styles"), "") } } })()</script>
+</head>
+{.if template.mobileStylesEnabled}<!-- Mobile Styles Enabled -->{.or}<!-- Mobile Styles Disabled -->{.end}
+
+<body id="{squarespace.page-id}"
+  class="{squarespace.page-classes}{.if website.logoImageUrl} has-logo-image{.or} has-site-title{.end}{.if website.siteTagLine} has-tagline{.end}{.if showCart} has-cart{.end}{.if websiteSettings.userAccountsSettings.loginAllowed} has-user-accounts{.end}{.if website.socialAccounts.0} has-social{.end}<squarespace:navigation navigationId="
+  mainNav">{.if items.0} has-primary-nav{.end}</squarespace:navigation>
+  <squarespace:navigation navigationId="secondaryNav">{.if items.0} has-secondary-nav{.end}</squarespace:navigation>
+  {.section collection}{.background-source-video?} has-video-background-banner{.end}{.end}"
+  data-controller="BodyClassController">
 
   <div class="overflow-wrapper">
 
@@ -23,20 +31,22 @@
 
         {# <!-- custom project / gallery banner else page banner --> }
         {.equal? collection.typeName "project"}
-          {@|apply project-banner.block}
+        {@|apply project-banner.block}
         {.or}
-          {.equal? collection.typeName "gallery"}
-            {@|apply project-banner.block}
-          {.or}
-            {@|apply page-banner.block}
-          {.end}
+        {.equal? collection.typeName "gallery"}
+        {@|apply project-banner.block}
+        {.or}
+        {@|apply page-banner.block}
+        {.end}
         {.end}
 
-        <main id="page" class="site-page" role="main"{.equal? collection.typeName "project"} data-controller="ProjectController"{.end}>
+        <main id="page" class="site-page" role="main" {.equal? collection.typeName "project" }
+          data-controller="ProjectController" {.end}>
 
           {.equal? collection.typeName "page"}{.or}
           {# <!-- when not a page, include collection specific header via open block field --> }
-          <squarespace:block-field class="collection-header" id="collection-header-{collection.id}" columns="12" label="Collection Header Content" />
+          <squarespace:block-field class="collection-header" id="collection-header-{collection.id}" columns="12"
+            label="Collection Header Content" />
           {.end}
 
           <div class="main-content" data-content-field="main-content">
@@ -46,7 +56,8 @@
 
           {.equal? collection.typeName "page"}{.or}
           {# <!-- when not a page, include collection specific footer via open block field --> }
-          <squarespace:block-field class="collection-footer" id="collection-footer-{collection.id}" columns="12" label="Collection Footer Content" />
+          <squarespace:block-field class="collection-footer" id="collection-footer-{collection.id}" columns="12"
+            label="Collection Footer Content" />
           {.end}
 
           <squarespace:folder-navigation template="index-navigation" />
@@ -66,5 +77,6 @@
     {squarespace-footers}
 
 
-  </body>
+</body>
+
 </html>
