@@ -1,0 +1,5 @@
+
+  <div class="main-content" data-content-field="main-content">
+            {# <!-- render page main content --> }
+            {squarespace.main-content}
+          </div>
